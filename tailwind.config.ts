@@ -1,18 +1,26 @@
-import type { Config } from "tailwindcss";
-
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        bodyfont: ["Poppins", "sans-serif"],
+        titlefont: ["Montserrat", "sans-serif"],
+      },
+
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        bodyColor: "#E2E2E2",
+        bodyPrimaryColor: "#FFFFFF",
+        balckcolor: "#393939",
+        primarycolor: "#1FA45B",
+        grayColor: "#868868",
       },
     },
   },
+  darkMode: "class",
   plugins: [],
-} satisfies Config;
+};

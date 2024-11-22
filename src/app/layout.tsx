@@ -1,6 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+
+import { CiSearch } from "react-icons/ci";
+import NavberDerpdown from "@/components/NavberDerpdown";
+
+import Category from "@/components/Category";
+
+import Search from "@/components/Search";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +36,72 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  bg-bodyColor   `}
       >
-        {children}
+        <div className=" flex ">
+          <div className=" md:w-[100px] w-full  md:h-[527px] fixed md:top-[40px] bottom-0 z-50 p-5 md:left-[40px]  overflow-y-auto  bg-bodyPrimaryColor md:rounded-3xl rounded-t-3xl  flex md:flex-col  items-center justify-between gap-10 ">
+            <div className="md:block hidden">
+              <img src="https://i.ibb.co/5x3Dgnm/logo.png" alt=" log" />
+            </div>
+
+            <div className=" w-full  flex md:flex-col md:gap-6 gap-3 md;justify-center items-center justify-between   ">
+              <img src="https://i.ibb.co/fXKr4Nq/Group-1.png" alt="" />
+              <img src="https://i.ibb.co/fG1P5Vx/Group-2.png" alt="" />
+              <img src="https://i.ibb.co/PN9Yb1R/Group-3.png" alt="" />
+              <img src="https://i.ibb.co/Lr7Q1yH/Bookmark.png" alt="" />
+              <img src="https://i.ibb.co/71Kbng3/Ruqyah.png" alt="" />
+              <img
+                className=" md:block hidden"
+                src="https://i.ibb.co/zs4N2BX/Dua-Q-A.png"
+                alt=""
+              />
+              <img src="https://i.ibb.co/Y2VzyrZ/Book.png" alt="" />
+            </div>
+            <div className=" md:flex hidden justify-center items-center ">
+              <ul className=" flex justify-center items-center rounded-lg bg-primarycolor w-12 h-12 my-4">
+                <img
+                  src="https://i.ibb.co/zSc4GsG/bxs-donate-heart.png"
+                  alt=" log"
+                />
+              </ul>
+            </div>
+          </div>
+          <div className=" ">
+            <div className="md:h-24 h-20 px-4  bg-bodyColor z-10  md:pl-[170px] justify-between  w-screen fixed top-0 md:pr-10 flex ">
+              <p className="md:w-1/2 text-2xl md:mt-[40px] mt-[20px]  ">
+                Dua page
+              </p>
+
+              <div className="flex  ">
+                <div className=" md:block hidden relative w-[600px]  ">
+                  <div className="md:mt-[40px]  ">
+                    <Search condions="false"></Search>
+                  </div>
+                </div>
+                <div className="w-full  ">
+                  <NavberDerpdown></NavberDerpdown>
+                </div>
+              </div>
+            </div>
+            <div className="md:flex md:ml-[170px] mt-[100px]    ">
+              <div className=" md:block hidden   fixed top-24  bg-bodyPrimaryColor h-screen rounded-t-2xl ">
+                <div className=" ">
+                  <p className=" text-white w-full text-lg  text-center  py-4 bg-primarycolor rounded-t-2xl">
+                    Category{" "}
+                  </p>
+                  <div className="mt-5">
+                    <Search></Search>
+                  </div>
+                </div>
+                <div className="  md:w-80 ">
+                  <Category></Category>
+                </div>
+              </div>
+              task_server_IRD_Foundation task server is Runnning "
+              <div className=" md:ml-[320px] ">{children}</div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
